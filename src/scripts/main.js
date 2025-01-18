@@ -371,7 +371,12 @@ const dashboard = document.querySelector('.dashboard');
   properties.forEach((prop) => {
     const cell = document.createElement('td');
 
-    cell.textContent = personCopy[prop];
+    if (prop === 'sex') {
+      cell.textContent = personCopy[prop] === 'm' ? 'Male' : 'Female';
+    } else {
+      cell.textContent = personCopy[prop];
+    }
+
     row.appendChild(cell);
   });
   dashboard.appendChild(row);
